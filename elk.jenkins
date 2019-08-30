@@ -12,6 +12,12 @@ pipeline {
         timestamps()
     }
     stages {
+        stage("install docker,docker-compose") {
+            steps {
+                echo "================================ install docker components ===================="
+                sh 'apt install docker.io docker-compose git'
+              }
+        }
         stage("create docker image") {
             steps {
                 echo "================================ start building image ===================="
